@@ -10,13 +10,6 @@ var overlap = function (d1, d2) {
          d1.top < (d2.top + d2.height)
 }
 
-var compare = function (obj1, obj2) {
-  return obj1.left === obj2.left &&
-         obj1.top === obj2.top &&
-         obj1.width === obj2.width &&
-         obj1.height === obj2.height
-}
-
 var overlaps = function (candidate, others) {
   var overlapped = []
   others.forEach(function (other) {
@@ -41,7 +34,6 @@ var search = function s(candidates, others) {
 
   return results
 }
-
 
 /*
  * Initialize magellan with some objects.
