@@ -14,7 +14,7 @@ describe('magellan', function () {
     assert.throws(function () { magellan.add({}) })
   })
 
-  it.only('simple overlay condition', function () {
+  it('simple overlay condition', function () {
     var connections = magellan.explore({top: 100, left: 100, width: 100, height: 100})
     assert.equal(connections.length, 2)
 
