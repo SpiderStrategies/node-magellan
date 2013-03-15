@@ -1,0 +1,26 @@
+{
+  "name": "node-magellan",
+  "version": "0.0.1",
+  "description": "Explores components looking for a connected path",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SpiderStrategies/node-magellan"
+  },
+  "keywords": [
+    "graph",
+    "connected-nodes"
+  ],
+  "author": "Nathan Bowser <nathan.bowser@spiderstrategies.com>",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "underscore": "~1.4.4"
+  },
+  "devDependencies": {
+    "mocha": "~1.8.2"
+  }
+}
