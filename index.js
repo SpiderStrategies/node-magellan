@@ -33,6 +33,10 @@ Magellan.prototype.add = function () {
   }
 }
 
+/*
+ * Returns all objects which are connected to the received
+ * test candidates. They are connected if their areas intersect.
+ */
 Magellan.prototype.explore = function () {
   var candidates = Array.prototype.slice.call(arguments)
     , results = []
