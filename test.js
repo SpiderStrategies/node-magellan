@@ -14,6 +14,15 @@ describe('magellan', function () {
     assert.throws(function () { magellan.add({}) })
   })
 
+  it('no overlays', function () {
+    var magellan = new Magellan({top: 100, left: 100, width: 100, height: 100},
+                                {top: 500, left: 500, width: 100, height: 100})
+    var connections = magellan.explore(magellan.objs[0])
+    assert.equal(connections.length, 1)
+    assert.deepEqual(connections[0], {top: 100, left: 100, width: 100, height: 100})
+    assert.deepEqual(connections[0], magellan.objs[0])
+  })
+
   it('simple overlay condition', function () {
     var first = magellan.objs[0]
     var connections = magellan.explore(first)
