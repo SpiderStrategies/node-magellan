@@ -15,7 +15,8 @@ describe('magellan', function () {
   })
 
   it('simple overlay condition', function () {
-    var connections = magellan.explore({top: 100, left: 100, width: 100, height: 100})
+    var first = magellan.objs[0]
+    var connections = magellan.explore(first)
     assert.equal(connections.length, 2)
 
     assert.deepEqual(connections[0], {top: 100, left: 100, width: 100, height: 100})
@@ -24,11 +25,11 @@ describe('magellan', function () {
 
   it('3 connected', function () {
     magellan.add({top: 100, left: 300, width: 100, height: 100})
-    var connections = magellan.explore({top: 100, left: 100, width: 100, height: 100})
+    var connections = magellan.explore(magellan.objs[0])
     assert.equal(connections.length, 3)
     assert.deepEqual(connections[0], {top: 100, left: 100, width: 100, height: 100})
     assert.deepEqual(connections[1], {top: 100, left: 150, width: 200, height: 100})
-    assert.deepEqual(connections[1], {top: 100, left: 300, width: 100, height: 100})
+    assert.deepEqual(connections[2], {top: 100, left: 300, width: 100, height: 100})
   })
 
   beforeEach(function () {

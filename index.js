@@ -9,6 +9,38 @@ var overlap = function (d1, d2) {
          d1.top < (d2.top + d2.height)
 }
 
+var compare = function (obj1, obj2) {
+  return obj1.left === obj2.left &&
+         obj1.top === obj2.top &&
+         obj1.width === obj2.width &&
+         obj1.height === obj2.height
+}
+
+var overlaps = function (candidate, others) {
+  var overlapped = []
+  others.forEach(function (other) {
+    if (overlap(other, candidate)) {
+      // If it's overlapped, we should remove it from 'others'
+      // and add it to the set
+      overlapped.push(others.splice(others.indexOf(other), 1)[0])
+    }
+  })
+  return overlapped
+}
+
+var search = function s(candidates, others) {
+  var results = candidates
+
+  if (candidates.length === 0) return results
+
+  candidates.forEach(function (candidate) {
+    var immediateBastards = overlaps(candidate, others)
+    results = results.concat(s(immediateBastards, others))
+  })
+
+  return results
+}
+
 
 /*
  * Initialize magellan with some objects.
@@ -39,18 +71,9 @@ Magellan.prototype.add = function () {
  */
 Magellan.prototype.explore = function () {
   var candidates = Array.prototype.slice.call(arguments)
-    , results = []
+    , others =  _.difference(this.objs, candidates) // Others contains all the objects we need to test -- it shrinks over time
 
-  var self = this
-  candidates.forEach(function (candidate) {
-    self.objs.forEach(function (obj) {
-      if (overlap(obj, candidate)) {
-        results.push(obj)
-      }
-    })
-  })
-
-  return _.uniq(results)
+  return _.uniq(search(candidates, others))
 }
 
 /*
