@@ -1,4 +1,5 @@
 var _ = require('underscore')
+
 /*
  * Returns whether d1 and d2 overlap
  */
