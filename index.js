@@ -14,11 +14,16 @@ var overlaps = function (candidate, others) {
   var overlapped = []
   others.forEach(function (other) {
     if (overlap(other, candidate)) {
-      // If it's overlapped, we should remove it from 'others'
-      // and add it to the set
-      overlapped.push(others.splice(others.indexOf(other), 1)[0])
+      // If it's overlapped and add it to the set
+      overlapped.push(other)
     }
   })
+
+  // Now remove all from others
+  overlapped.forEach(function (overlapped) {
+    others.splice(others.indexOf(overlapped), 1)
+  })
+
   return overlapped
 }
 

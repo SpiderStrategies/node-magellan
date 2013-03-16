@@ -48,7 +48,6 @@ describe('magellan', function () {
     var connections = magellan.explore(magellan.objs[1])
 
     assert.equal(connections.length, 3)
-
   })
 
   beforeEach(function () {
