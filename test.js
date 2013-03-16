@@ -41,10 +41,20 @@ describe('magellan', function () {
     assert.deepEqual(connections[2], {top: 100, left: 300, width: 100, height: 100})
   })
 
+  it('base wob with two direct connections', function () {
+    var magellan = new Magellan({height: 226, width: 217, top: 89, left: 512},
+                                {left: 337, top: 229, width:214, height: 322},
+                                {height: 200, width: 200, top: 150, left: 180})
+    var connections = magellan.explore(magellan.objs[1])
+
+    assert.equal(connections.length, 3)
+
+  })
+
   beforeEach(function () {
     magellan = new Magellan({top: 100, left: 100, width: 100, height: 100},
-                                {top: 500, left: 500, width: 100, height: 100},
-                                {top: 100, left: 150, width: 200, height: 100})
+                            {top: 500, left: 500, width: 100, height: 100},
+                            {top: 100, left: 150, width: 200, height: 100})
   })
 
 })
