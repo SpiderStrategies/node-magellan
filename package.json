@@ -1,5 +1,5 @@
 {
-  "name": "node-magellan",
+  "name": "magellan",
   "version": "0.0.1",
   "description": "Explores components looking for a connected path",
   "main": "index.js",
