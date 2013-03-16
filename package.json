@@ -1,6 +1,6 @@
 {
   "name": "magellan",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Explores components looking for a connected path",
   "main": "index.js",
   "scripts": {
