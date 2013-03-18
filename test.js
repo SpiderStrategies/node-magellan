@@ -50,6 +50,14 @@ describe('magellan', function () {
     assert.equal(connections.length, 3)
   })
 
+  it('touching but not overlapping does not count', function() {
+    // This is touching (directly adjacent to) the first node, but doesn't overlap
+    var touching = {top: 200, left: 100, width: 100, height: 100}
+    var connections = magellan.explore(touching)
+    // Only result is the "touching" object itself
+    assert.deepEqual(connections[0], touching)
+  })
+
   beforeEach(function () {
     magellan = new Magellan({top: 100, left: 100, width: 100, height: 100},
                             {top: 500, left: 500, width: 100, height: 100},
